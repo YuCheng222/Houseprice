@@ -1,6 +1,12 @@
 introduction
 data-sources
 data-transformation
+import-data
+data-transformation-1
+combine-the-five-tables-into-one
+add-one-new-column-to-the-dataset-and-rearrange-the-order-of-the-columns
+rename-and-display-all-variables-name-of-new-dataset
+remove-the-columns-and-rows-we-dont-need
 missing-values
 results
 interactive-component

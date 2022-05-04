@@ -1,18 +1,38 @@
 # Data transformation
+## Import Data
 ```{r}
-library(hrbrthemes)
-library(readxl)
+library(tidyverse)
 library(dplyr)
+library(readxl)
 RS_Ma <- read_excel("rollingsales_manhattan.xlsx")
 RS_Bron <- read_excel("rollingsales_bronx.xlsx")
 RS_Brook <- read_excel("rollingsales_brooklyn.xlsx")
 RS_Que <- read_excel("rollingsales_queens.xlsx")
 RS_SI <- read_excel("rollingsales_statenisland.xlsx")
-#Combine the five tables into one
-data<-rbind(RS_Ma,RS_Bron,RS_Brook,RS_Que,RS_SI)
-#Remove the columns we don't need
-data<-data[,-(4:11)]
+names(RS_Ma)
+RS_Bron
+```
 
+## Data Transformation
+### Combine the five tables into one
+Before combine:
+```{r}
+summary(RS_Ma$BOROUGH)
+```
+After combine:
+```{r}
+library(hrbrthemes)
+library(dplyr)
+data<-rbind(RS_Ma,RS_Bron,RS_Brook,RS_Que,RS_SI)
+summary(data$BOROUGH)
+```
+
+
+
+
+### Add one new column to the dataset and Rearrange the order of the columns
+
+```{r}
 #Describe the classification of BOROUGH in words
 description <- data.frame(BOROUGH = c("1","2","3","4","5"), Name = c(
   "Manhattan",
@@ -26,8 +46,11 @@ new_data <- data %>%
   filter(data$BOROUGH %in% c("1","2","3","4","5")) %>%
   inner_join(., description)
 #Rearrange the order of the columns
-new_data<-new_data[c(1,14,2:13)]
-#
+new_data<-new_data[c(1,22,2:21)]
+head(new_data)
+```
+### rename and display all variables name of new dataset
+```{r}
 new_data$BUILDING_CLASS_CATEGORY<-new_data$`BUILDING CLASS CATEGORY`
 new_data$`BUILDING CLASS CATEGORY` <- NULL
 new_data$RESIDENTIAL_UNITS<-new_data$`RESIDENTIAL UNITS`
@@ -52,9 +75,20 @@ new_data$SALE_DATE<-new_data$`SALE DATE`
 new_data$`SALE DATE` <- NULL
 #Display all variables name of new_data
 names(new_data)
+```
+
+### Remove the columns and rows we don't need
+Before remove:
+```{r}
+head(new_data)
+```
+Because there are some variables that are not useful for our study of house price changes in New York, and in addition to that, we do not need houses with transactions below $1,000, so we remove them.
+```{r}
+#Remove the columns we don't need
+new_data<-new_data[,-(4:11)]
 #Remove the rows with house price less than 1000
 new_data1 <- new_data[!(new_data$SALE_PRICE<1000),]
 new_data1
 ```
-*my assdd
+
 
