@@ -12,5 +12,6 @@ describe-the-missing-values
 exploring-the-missing-values
 excluding-missing-values-from-analyses
 results
+visualize-distributions-of-building-year-built-with-different-borough
 interactive-component
 conclusion

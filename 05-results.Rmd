@@ -1,1 +1,31 @@
 # Results
+## Visualize Distributions of Building Year Built with Different Borough
+```{r}
+library(ggplot2)
+library(tidyverse)
+g1 <- data_complete %>% 
+  mutate(Name = fct_relevel(Name, 'Manhattan','Bronx','Brooklyn','Queens','StatesIsland')) %>%
+  ggplot(aes(Name, YEAR_BUILT)) +
+  geom_boxplot(fill='steelblue') +
+  coord_flip() +
+  xlab('Name')
+g1
+```
+
+```{r}
+library(ggridges) 
+g2 <- data_complete %>%
+  mutate(Name = fct_relevel(Name, 'Manhattan','Bronx','Brooklyn','Queens','StatesIsland')) %>%
+  ggplot(aes(x=YEAR_BUILT, y=Name)) +
+  geom_density_ridges(fill = "cornflowerblue",, alpha=0.5, scale=1)
+g2
+```
+
+```{r}
+library(gridExtra)
+grid.arrange(g1,g2, nrow=1)
+```
+
+The left is the Boxplots of Year of Building Establishment by Borough Name. The right graph is the Ridgeline Plots of Year of Building Establishment by Borough Name.
+
+The boxplots allow us to see that there are some year bulit outliers for each borough, with the most happening in the “StatesIsland” borough. We can also see from the boxplots that the median year built is similar for Bronx and Brooklyn. The ridgeline plots allow us to easily compare distributions of the year built of collisions. The distribution of year built for Queens, Brooklyn, and Bronx are all very similar and basically trimodal about 1925, with some collisions happening at later years. The distribution of year built at StatesIsland is little different – it is almost unimodal with modes at 1985.

@@ -1,5 +1,5 @@
 # Missing values
-##  Describe the missing values
+##  Describe the Missing Values
 ```{r}
 library(dplyr)
 library(naniar)
@@ -18,7 +18,7 @@ Second, we describe missing patterns by column, and from the result we can see t
 
 Last, from the table above we know that there are 8 variables with 0 missings, comprising 57.14% of variables in the data set. There is 1 variable with 5302 missings.There is 1 variable with 18837 missings.
 
-## Exploring the missing values
+## Exploring the Missing Values
 ```{r}
 vis_miss(new_data1, warn_large_data=FALSE)
 ```
