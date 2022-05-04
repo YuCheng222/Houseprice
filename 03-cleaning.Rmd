@@ -1,5 +1,6 @@
 # Data transformation
 ```{r}
+library(hrbrthemes)
 library(readxl)
 library(dplyr)
 RS_Ma <- read_excel("rollingsales_manhattan.xlsx")
