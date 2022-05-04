@@ -1,5 +1,6 @@
 # Data transformation
 ## Import Data
+The Department of Finance’s Rolling Sales files lists properties that sold in the last twelve-month period in New York City. We display the variables names of the datasets:
 ```{r}
 library(tidyverse)
 library(dplyr)
@@ -10,6 +11,9 @@ RS_Brook <- read_excel("rollingsales_brooklyn.xlsx")
 RS_Que <- read_excel("rollingsales_queens.xlsx")
 RS_SI <- read_excel("rollingsales_statenisland.xlsx")
 names(RS_Ma)
+```
+Pick a dataset to take a brief look at:
+```{r}
 RS_Bron
 ```
 
@@ -49,7 +53,7 @@ new_data <- data %>%
 new_data<-new_data[c(1,22,2:21)]
 head(new_data)
 ```
-### rename and display all variables name of new dataset
+### Rename and display all variables name of new dataset
 ```{r}
 new_data$BUILDING_CLASS_CATEGORY<-new_data$`BUILDING CLASS CATEGORY`
 new_data$`BUILDING CLASS CATEGORY` <- NULL
