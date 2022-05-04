@@ -84,7 +84,11 @@
 <li class="chapter" data-level="3.2.4" data-path="data-transformation.html"><a href="data-transformation.html#remove-the-columns-and-rows-we-dont-need"><i class="fa fa-check"></i><b>3.2.4</b> Remove the columns and rows we don’t need</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values</a></li>
+<li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values</a><ul>
+<li class="chapter" data-level="4.1" data-path="missing-values.html"><a href="missing-values.html#describe-the-missing-values"><i class="fa fa-check"></i><b>4.1</b> Describe the missing values</a></li>
+<li class="chapter" data-level="4.2" data-path="missing-values.html"><a href="missing-values.html#exploring-the-missing-values"><i class="fa fa-check"></i><b>4.2</b> Exploring the missing values</a></li>
+<li class="chapter" data-level="4.3" data-path="missing-values.html"><a href="missing-values.html#excluding-missing-values-from-analyses"><i class="fa fa-check"></i><b>4.3</b> Excluding Missing Values from Analyses</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a></li>
 <li class="chapter" data-level="6" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>6</b> Interactive component</a></li>
 <li class="chapter" data-level="7" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>7</b> Conclusion</a></li>
@@ -109,6 +113,8 @@
             <section class="normal" id="section-">
 <div id="missing-values" class="section level1 hasAnchor">
 <h1><span class="header-section-number">Chapter 4</span> Missing values<a href="missing-values.html#missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="describe-the-missing-values" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.1</span> Describe the missing values<a href="missing-values.html#describe-the-missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   0.000   0.000   3.000   2.274   5.000   6.000</code></pre>
 <pre><code>##               LAND_SQUARE_FEET              GROSS_SQUARE_FEET               COMMERCIAL_UNITS              RESIDENTIAL_UNITS 
@@ -129,10 +135,73 @@
 ## 4         21272      1     7.14
 ## 5         37875      1     7.14
 ## 6         40310      2    14.3</code></pre>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-37-1.png" width="672" />
-<img src="finalproj_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<p>Firstly, we describe missing patterns by row, and we can know the maximum numbers of missing value for a row is 6. And the minimum numbers of missing value for a row is 0. Since the mean of numbers of missing value is 2.274, we can find that the most rows who have the numbers of missing value are less or equal to 5.</p>
+<p>Second, we describe missing patterns by column, and from the result we can see that BOROUGH, Name, NEIGHBORHOOD, BUILDING_CLASS_CATEGORY, TAX_CLASS_AT_TIME_OF_SALE, BUILDING_CLASS_AT_TIME_OF_SALE, SALE_PRICE and SALE_DATE do not have missing value. We conclude that there are total 6 missing variables.</p>
+<p>Last, from the table above we know that there are 8 variables with 0 missings, comprising 57.14% of variables in the data set. There is 1 variable with 5302 missings.There is 1 variable with 18837 missings.</p>
+</div>
+<div id="exploring-the-missing-values" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.2</span> Exploring the missing values<a href="missing-values.html#exploring-the-missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>The above graph provides a summary of whether the data is missing or not. It also provides the amount of missings in each columns. So here, LAND_SQUARE_FEET and GROSS_SQUARE_FEET have the most missing data, with LAND_SQUARE_FEET having 55.93% missing data and GROSS_SQUARE_FEET have 55.93%.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>We also try to add facets in above plots with different Borough.</p>
+<pre><code>## [1] 163906</code></pre>
+<pre><code>## NOTE: The following pairs of variables appear to have the same missingness pattern.
+##  Please verify whether they are in fact logically distinct variables.
+##      [,1]               [,2]               
+## [1,] &quot;LAND_SQUARE_FEET&quot; &quot;GROSS_SQUARE_FEET&quot;</code></pre>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<pre><code>## NOTE: In the following pairs of variables, the missingness pattern of the second is a subset of the first.
+##  Please verify whether they are in fact logically distinct variables.
+##      [,1]                [,2]         
+## [1,] &quot;RESIDENTIAL_UNITS&quot; &quot;TOTAL_UNITS&quot;
+## [2,] &quot;COMMERCIAL_UNITS&quot;  &quot;TOTAL_UNITS&quot;</code></pre>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-16-2.png" width="672" /></p>
+<pre><code>## NOTE: In the following pairs of variables, the missingness pattern of the second is a subset of the first.
+##  Please verify whether they are in fact logically distinct variables.
+##      [,1]                [,2]         
+## [1,] &quot;RESIDENTIAL_UNITS&quot; &quot;TOTAL_UNITS&quot;
+## [2,] &quot;COMMERCIAL_UNITS&quot;  &quot;TOTAL_UNITS&quot;</code></pre>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<pre><code>## NOTE: The following pairs of variables appear to have the same missingness pattern.
+##  Please verify whether they are in fact logically distinct variables.
+##      [,1]               [,2]               
+## [1,] &quot;LAND_SQUARE_FEET&quot; &quot;GROSS_SQUARE_FEET&quot;</code></pre>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-17-2.png" width="672" /></p>
+<p>These four graphs show that the information on the missing value of the data set. There are 163906 values missing in it. Since there are 72067 rows in the data set, we choose to do graphs visualization every 20,000 rows.</p>
+</div>
+<div id="excluding-missing-values-from-analyses" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.3</span> Excluding Missing Values from Analyses<a href="missing-values.html#excluding-missing-values-from-analyses" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When dealing with data that is missing at random, related data can be deleted to reduce bias. We delete the columns with missing values above 20,000 and then drop the missing values. After removing rows with missing values, we get:</p>
+<pre><code>##  [1] &quot;BOROUGH&quot;                        &quot;Name&quot;                           &quot;NEIGHBORHOOD&quot;                  
+##  [4] &quot;BUILDING_CLASS_CATEGORY&quot;        &quot;TOTAL_UNITS&quot;                    &quot;YEAR_BUILT&quot;                    
+##  [7] &quot;TAX_CLASS_AT_TIME_OF_SALE&quot;      &quot;BUILDING_CLASS_AT_TIME_OF_SALE&quot; &quot;SALE_PRICE&quot;                    
+## [10] &quot;SALE_DATE&quot;</code></pre>
+<pre><code>## tibble [48,156 × 10] (S3: tbl_df/tbl/data.frame)
+##  $ BOROUGH                       : chr [1:48156] &quot;1&quot; &quot;1&quot; &quot;1&quot; &quot;1&quot; ...
+##  $ Name                          : Factor w/ 5 levels &quot;Bronx&quot;,&quot;Brooklyn&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
+##  $ NEIGHBORHOOD                  : chr [1:48156] &quot;ALPHABET CITY&quot; &quot;ALPHABET CITY&quot; &quot;ALPHABET CITY&quot; &quot;ALPHABET CITY&quot; ...
+##  $ BUILDING_CLASS_CATEGORY       : chr [1:48156] &quot;02 TWO FAMILY DWELLINGS&quot; &quot;07 RENTALS - WALKUP APARTMENTS&quot; &quot;07 RENTALS - WALKUP APARTMENTS&quot; &quot;07 RENTALS - WALKUP APARTMENTS&quot; ...
+##  $ TOTAL_UNITS                   : num [1:48156] 2 20 29 10 30 8 10 9 10 10 ...
+##  $ YEAR_BUILT                    : num [1:48156] 2003 1900 1910 1910 1900 ...
+##  $ TAX_CLASS_AT_TIME_OF_SALE     : chr [1:48156] &quot;1&quot; &quot;2&quot; &quot;2&quot; &quot;2&quot; ...
+##  $ BUILDING_CLASS_AT_TIME_OF_SALE: chr [1:48156] &quot;B1&quot; &quot;C4&quot; &quot;C1&quot; &quot;C4&quot; ...
+##  $ SALE_PRICE                    : num [1:48156] 3025000 154196 7500000 5650000 11600000 ...
+##  $ SALE_DATE                     : POSIXct[1:48156], format: &quot;2021-12-16&quot; &quot;2021-06-11&quot; &quot;2021-06-14&quot; &quot;2022-03-30&quot; ...
+##  - attr(*, &quot;na.action&quot;)= &#39;omit&#39; Named int [1:23911] 17 18 19 20 21 22 23 24 25 26 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:23911] &quot;17&quot; &quot;18&quot; &quot;19&quot; &quot;20&quot; ...</code></pre>
+<pre><code>## # A tibble: 6 × 10
+##   BOROUGH Name      NEIGHBORHOOD  BUILDING_CLASS_CATEG… TOTAL_UNITS YEAR_BUILT TAX_CLASS_AT_TIME_… BUILDING_CLASS_AT_T… SALE_PRICE
+##   &lt;chr&gt;   &lt;fct&gt;     &lt;chr&gt;         &lt;chr&gt;                       &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;               &lt;chr&gt;                     &lt;dbl&gt;
+## 1 1       Manhattan ALPHABET CITY 02 TWO FAMILY DWELLI…           2       2003 1                   B1                      3025000
+## 2 1       Manhattan ALPHABET CITY 07 RENTALS - WALKUP …          20       1900 2                   C4                       154196
+## 3 1       Manhattan ALPHABET CITY 07 RENTALS - WALKUP …          29       1910 2                   C1                      7500000
+## 4 1       Manhattan ALPHABET CITY 07 RENTALS - WALKUP …          10       1910 2                   C4                      5650000
+## 5 1       Manhattan ALPHABET CITY 07 RENTALS - WALKUP …          30       1900 2                   C7                     11600000
+## 6 1       Manhattan ALPHABET CITY 07 RENTALS - WALKUP …           8       1900 2                   C4                      4500000
+## # … with 1 more variable: SALE_DATE &lt;dttm&gt;</code></pre>
 
+</div>
 </div>
             </section>
 

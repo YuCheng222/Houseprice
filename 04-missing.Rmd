@@ -1,4 +1,5 @@
 # Missing values
+##  Describe the missing values
 ```{r}
 library(dplyr)
 library(naniar)
@@ -7,24 +8,58 @@ summary(rowSums(is.na(new_data1)))
 colSums(is.na(new_data1)) %>%
   sort(decreasing = TRUE)
 
-n_var_miss(new_data1)#number of missing variables
+n_var_miss(new_data1)
 
 miss_var_table(new_data1)
-#There are 8 variables with 0 missings, comprising 57.14% of variables in the dataset.
-#There is 1 variable with 5302 missings
-#There is 1 variable with 18837 missings
 ```
+Firstly, we describe missing patterns by row, and we can know the maximum numbers of missing value for a row is 6. And the minimum numbers of missing value for a row is 0. Since the mean of numbers of missing value is 2.274, we can find that the most rows who have the numbers of missing value are less or equal to 5.
 
+Second, we describe missing patterns by column, and from the result we can see that BOROUGH, Name, NEIGHBORHOOD, BUILDING_CLASS_CATEGORY, TAX_CLASS_AT_TIME_OF_SALE, BUILDING_CLASS_AT_TIME_OF_SALE, SALE_PRICE and SALE_DATE do not have missing value. We conclude that there are total 6 missing variables.
 
-```{r}
-vis_dat(new_data1, warn_large_data=FALSE)
-```
+Last, from the table above we know that there are 8 variables with 0 missings, comprising 57.14% of variables in the data set. There is 1 variable with 5302 missings.There is 1 variable with 18837 missings.
+
+## Exploring the missing values
 ```{r}
 vis_miss(new_data1, warn_large_data=FALSE)
 ```
+
+The above graph provides a summary of whether the data is missing or not. It also provides the amount of missings in each columns. So here, LAND_SQUARE_FEET and GROSS_SQUARE_FEET have the most missing data, with LAND_SQUARE_FEET having 55.93% missing data and GROSS_SQUARE_FEET have 55.93%.
 
 ```{r}
 gg_miss_var(new_data1, facet = Name)
 ```
 
+We also try to add facets in above plots with different Borough.
+
+```{r}
+sum(is.na.data.frame(new_data1))
+
+data <- as.data.frame(new_data1)%>%
+  select(-SALE_DATE)
+
+x1 <- missing_data.frame(data[1:20000,])
+image(x1)
+
+x2 <- missing_data.frame(data[20000:40000,])
+image(x2)
+```
+```{r}
+x3 <- missing_data.frame(data[40000:60000,]) 
+image(x3)
+
+x4 <- missing_data.frame(data[60000:72067,]) 
+image(x4)
+```
+
+These four graphs show that the information on the missing value of the data set. There are 163906 values missing in it. Since there are 72067 rows in the data set, we choose to do graphs visualization every 20,000 rows.
+
+## Excluding Missing Values from Analyses
+When dealing with data that is missing at random, related data can be deleted to reduce bias. We delete the columns with missing values above 20,000 and then drop the missing values. After removing rows with missing values, we get:
+```{r}
+new_data1 <- subset(new_data1, select = -c(LAND_SQUARE_FEET,GROSS_SQUARE_FEET,COMMERCIAL_UNITS,RESIDENTIAL_UNITS))
+names(new_data1)
+data_complete <- na.omit(new_data1)
+str(data_complete) 
+head(data_complete)
+```
 

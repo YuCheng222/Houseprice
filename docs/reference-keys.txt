@@ -8,6 +8,9 @@ add-one-new-column-to-the-dataset-and-rearrange-the-order-of-the-columns
 rename-and-display-all-variables-name-of-new-dataset
 remove-the-columns-and-rows-we-dont-need
 missing-values
+describe-the-missing-values
+exploring-the-missing-values
+excluding-missing-values-from-analyses
 results
 interactive-component
 conclusion
