@@ -84,6 +84,7 @@ names(new_data)
 ### Remove the columns and rows we don't need
 Before remove:
 ```{r}
+names(new_data)
 head(new_data)
 ```
 Because there are some variables that are not useful for our study of house price changes in New York, and in addition to that, we do not need houses with transactions below $1,000, so we remove them.
@@ -92,6 +93,8 @@ Because there are some variables that are not useful for our study of house pric
 new_data<-new_data[,-(4:11)]
 #Remove the rows with house price less than 1000
 new_data1 <- new_data[!(new_data$SALE_PRICE<1000),]
+names(new_data1)
+head(new_data1)
 ```
 
 
