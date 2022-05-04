@@ -55,7 +55,7 @@ names(new_data)
 #Remove the rows with house price less than 1000
 new_data1 <- new_data[!(new_data$SALE_PRICE<1000),]
 new_data1
-
+names(new_data1)
 ```
 *my assdd
 
