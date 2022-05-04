@@ -1,6 +1,6 @@
 --- 
-title: "YOUR TITLE HERE"
-author: "YOUR NAMES HERE"
+title: "Analyze the Change of New York House Prices from 2000-2020"
+author: "Yu Cheng | Hui Li"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
