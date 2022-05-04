@@ -1,0 +1,11 @@
+---
+title: "Untitled"
+author: "Yu Cheng"
+date: "5/3/2022"
+output: html_document
+---
+
+```{r}
+loRegression <- read.csv("heart_balanced.csv")
+```
+
