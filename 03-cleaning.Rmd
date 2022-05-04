@@ -25,7 +25,6 @@ summary(RS_Ma$BOROUGH)
 ```
 After combine:
 ```{r}
-library(hrbrthemes)
 library(dplyr)
 data<-rbind(RS_Ma,RS_Bron,RS_Brook,RS_Que,RS_SI)
 summary(data$BOROUGH)

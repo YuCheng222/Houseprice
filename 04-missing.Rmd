@@ -1,1 +1,30 @@
 # Missing values
+```{r}
+library(dplyr)
+library(naniar)
+library(mi)
+summary(rowSums(is.na(new_data1)))
+colSums(is.na(new_data1)) %>%
+  sort(decreasing = TRUE)
+
+n_var_miss(new_data1)#number of missing variables
+
+miss_var_table(new_data1)
+#There are 8 variables with 0 missings, comprising 57.14% of variables in the dataset.
+#There is 1 variable with 5302 missings
+#There is 1 variable with 18837 missings
+```
+
+
+```{r}
+vis_dat(new_data1, warn_large_data=FALSE)
+```
+```{r}
+vis_miss(new_data1, warn_large_data=FALSE)
+```
+
+```{r}
+gg_miss_var(new_data1, facet = Name)
+```
+
+
