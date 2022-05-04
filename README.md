@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Render the book
  1. Install bookdown with install.packages("bookdown"). If you already have it, update to the most recent version.
 
@@ -10,6 +11,9 @@ Render the book
 (You will need to repeat steps 2 and 4 every time you wish to update the book online.)
 
 My awesome book is
+=======
+
+>>>>>>> 21e869dbfb19b34cbc947311067a02b5d83aba86
 *This repo was initially generated from a bookdown template available here: https://github.com/YuCheng222/Houseprice.*	
 
 
