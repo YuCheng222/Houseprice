@@ -203,22 +203,6 @@
 ## #   TAX_CLASS_AT_TIME_OF_SALE &lt;chr&gt;, BUILDING_CLASS_AT_TIME_OF_SALE &lt;chr&gt;, SALE_PRICE &lt;dbl&gt;,
 ## #   SALE_DATE &lt;dttm&gt;</code></pre>
 <p>Because there are some variables that are not useful for our study of house price changes in New York, and in addition to that, we do not need houses with transactions below $1,000, so we remove them.</p>
-<pre><code>## # A tibble: 72,067 × 14
-##    BOROUGH Name      NEIGHBORHOOD  BUILDING_CLASS_CAT… RESIDENTIAL_UNI… COMMERCIAL_UNITS TOTAL_UNITS
-##    &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt;                          &lt;dbl&gt;            &lt;dbl&gt;       &lt;dbl&gt;
-##  1 1       Manhattan ALPHABET CITY 02 TWO FAMILY DWEL…                2                0           2
-##  2 1       Manhattan ALPHABET CITY 07 RENTALS - WALKU…               20                0          20
-##  3 1       Manhattan ALPHABET CITY 07 RENTALS - WALKU…               29                0          29
-##  4 1       Manhattan ALPHABET CITY 07 RENTALS - WALKU…               10                0          10
-##  5 1       Manhattan ALPHABET CITY 07 RENTALS - WALKU…               25                5          30
-##  6 1       Manhattan ALPHABET CITY 07 RENTALS - WALKU…                8                0           8
-##  7 1       Manhattan ALPHABET CITY 07 RENTALS - WALKU…                9                1          10
-##  8 1       Manhattan ALPHABET CITY 07 RENTALS - WALKU…                9                0           9
-##  9 1       Manhattan ALPHABET CITY 07 RENTALS - WALKU…               10                0          10
-## 10 1       Manhattan ALPHABET CITY 07 RENTALS - WALKU…               10                0          10
-## # … with 72,057 more rows, and 7 more variables: LAND_SQUARE_FEET &lt;dbl&gt;, GROSS_SQUARE_FEET &lt;dbl&gt;,
-## #   YEAR_BUILT &lt;dbl&gt;, TAX_CLASS_AT_TIME_OF_SALE &lt;chr&gt;, BUILDING_CLASS_AT_TIME_OF_SALE &lt;chr&gt;,
-## #   SALE_PRICE &lt;dbl&gt;, SALE_DATE &lt;dttm&gt;</code></pre>
 
 </div>
 </div>
