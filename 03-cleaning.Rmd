@@ -1,2 +1,59 @@
 # Data transformation
-#sjsjdhhd
+```{r}
+library(readxl)
+library(dplyr)
+RS_Ma <- read_excel("rollingsales_manhattan.xlsx")
+RS_Bron <- read_excel("rollingsales_bronx.xlsx")
+RS_Brook <- read_excel("rollingsales_brooklyn.xlsx")
+RS_Que <- read_excel("rollingsales_queens.xlsx")
+RS_SI <- read_excel("rollingsales_statenisland.xlsx")
+#Combine the five tables into one
+data<-rbind(RS_Ma,RS_Bron,RS_Brook,RS_Que,RS_SI)
+#Remove the columns we don't need
+data<-data[,-(4:11)]
+
+#Describe the classification of BOROUGH in words
+description <- data.frame(BOROUGH = c("1","2","3","4","5"), Name = c(
+  "Manhattan",
+  "Bronx",
+  "Brooklyn",
+  "Queens",
+  "StatesIsland")
+  )
+#Add the new column to the dataset
+new_data <- data %>%
+  filter(data$BOROUGH %in% c("1","2","3","4","5")) %>%
+  inner_join(., description)
+#Rearrange the order of the columns
+new_data<-new_data[c(1,14,2:13)]
+#
+new_data$BUILDING_CLASS_CATEGORY<-new_data$`BUILDING CLASS CATEGORY`
+new_data$`BUILDING CLASS CATEGORY` <- NULL
+new_data$RESIDENTIAL_UNITS<-new_data$`RESIDENTIAL UNITS`
+new_data$`RESIDENTIAL UNITS` <- NULL
+new_data$COMMERCIAL_UNITS<-new_data$`COMMERCIAL UNITS`
+new_data$`COMMERCIAL UNITS` <- NULL
+new_data$TOTAL_UNITS<-new_data$`TOTAL UNITS`
+new_data$`TOTAL UNITS` <- NULL
+new_data$LAND_SQUARE_FEET<-new_data$`LAND SQUARE FEET`
+new_data$`LAND SQUARE FEET` <- NULL
+new_data$GROSS_SQUARE_FEET<-new_data$`GROSS SQUARE FEET`
+new_data$`GROSS SQUARE FEET` <- NULL
+new_data$YEAR_BUILT<-new_data$`YEAR BUILT`
+new_data$`YEAR BUILT` <- NULL
+new_data$TAX_CLASS_AT_TIME_OF_SALE<-new_data$`TAX CLASS AT TIME OF SALE`
+new_data$`TAX CLASS AT TIME OF SALE` <- NULL
+new_data$BUILDING_CLASS_AT_TIME_OF_SALE<-new_data$`BUILDING CLASS AT TIME OF SALE`
+new_data$`BUILDING CLASS AT TIME OF SALE` <- NULL
+new_data$SALE_PRICE<-new_data$`SALE PRICE`
+new_data$`SALE PRICE` <- NULL
+new_data$SALE_DATE<-new_data$`SALE DATE`
+new_data$`SALE DATE` <- NULL
+#Display all variables name of new_data
+names(new_data)
+#Remove the rows with house price less than 1000
+new_data1 <- new_data[!(new_data$SALE_PRICE<1000),]
+new_data1
+
+```
+
