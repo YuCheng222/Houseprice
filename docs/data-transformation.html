@@ -123,24 +123,22 @@
 ## [19] &quot;BUILDING CLASS AT TIME OF SALE&quot; &quot;SALE PRICE&quot;                    
 ## [21] &quot;SALE DATE&quot;</code></pre>
 <pre><code>## # A tibble: 7,593 × 21
-##    BOROUGH NEIGHBORHOOD `BUILDING CLASS …` `TAX CLASS AT …` BLOCK   LOT EASEMENT
-##    &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;              &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;   
-##  1 2       BATHGATE     01 ONE FAMILY DWE… 1                 3037   101 NA      
-##  2 2       BATHGATE     01 ONE FAMILY DWE… 1                 3039    63 NA      
-##  3 2       BATHGATE     01 ONE FAMILY DWE… 1                 3045    12 NA      
-##  4 2       BATHGATE     01 ONE FAMILY DWE… 1                 3046    39 NA      
-##  5 2       BATHGATE     01 ONE FAMILY DWE… 1                 3048    28 NA      
-##  6 2       BATHGATE     01 ONE FAMILY DWE… 1                 3053   108 NA      
-##  7 2       BATHGATE     02 TWO FAMILY DWE… 1                 2912   135 NA      
-##  8 2       BATHGATE     02 TWO FAMILY DWE… 1                 2912   145 NA      
-##  9 2       BATHGATE     02 TWO FAMILY DWE… 1                 2912   145 NA      
-## 10 2       BATHGATE     02 TWO FAMILY DWE… 1                 2912   146 NA      
-## # … with 7,583 more rows, and 14 more variables:
-## #   `BUILDING CLASS AT PRESENT` &lt;chr&gt;, ADDRESS &lt;chr&gt;, `APARTMENT NUMBER` &lt;chr&gt;,
-## #   `ZIP CODE` &lt;dbl&gt;, `RESIDENTIAL UNITS` &lt;dbl&gt;, `COMMERCIAL UNITS` &lt;dbl&gt;,
-## #   `TOTAL UNITS` &lt;dbl&gt;, `LAND SQUARE FEET` &lt;dbl&gt;, `GROSS SQUARE FEET` &lt;dbl&gt;,
-## #   `YEAR BUILT` &lt;dbl&gt;, `TAX CLASS AT TIME OF SALE` &lt;chr&gt;,
-## #   `BUILDING CLASS AT TIME OF SALE` &lt;chr&gt;, `SALE PRICE` &lt;dbl&gt;,
+##    BOROUGH NEIGHBORHOOD `BUILDING CLASS CAT…` `TAX CLASS AT …` BLOCK   LOT EASEMENT `BUILDING CLAS…`
+##    &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;                 &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;    &lt;chr&gt;           
+##  1 2       BATHGATE     01 ONE FAMILY DWELLI… 1                 3037   101 NA       S0              
+##  2 2       BATHGATE     01 ONE FAMILY DWELLI… 1                 3039    63 NA       A1              
+##  3 2       BATHGATE     01 ONE FAMILY DWELLI… 1                 3045    12 NA       A1              
+##  4 2       BATHGATE     01 ONE FAMILY DWELLI… 1                 3046    39 NA       A1              
+##  5 2       BATHGATE     01 ONE FAMILY DWELLI… 1                 3048    28 NA       A1              
+##  6 2       BATHGATE     01 ONE FAMILY DWELLI… 1                 3053   108 NA       A9              
+##  7 2       BATHGATE     02 TWO FAMILY DWELLI… 1                 2912   135 NA       B1              
+##  8 2       BATHGATE     02 TWO FAMILY DWELLI… 1                 2912   145 NA       B1              
+##  9 2       BATHGATE     02 TWO FAMILY DWELLI… 1                 2912   145 NA       B1              
+## 10 2       BATHGATE     02 TWO FAMILY DWELLI… 1                 2912   146 NA       B1              
+## # … with 7,583 more rows, and 13 more variables: ADDRESS &lt;chr&gt;, `APARTMENT NUMBER` &lt;chr&gt;,
+## #   `ZIP CODE` &lt;dbl&gt;, `RESIDENTIAL UNITS` &lt;dbl&gt;, `COMMERCIAL UNITS` &lt;dbl&gt;, `TOTAL UNITS` &lt;dbl&gt;,
+## #   `LAND SQUARE FEET` &lt;dbl&gt;, `GROSS SQUARE FEET` &lt;dbl&gt;, `YEAR BUILT` &lt;dbl&gt;,
+## #   `TAX CLASS AT TIME OF SALE` &lt;chr&gt;, `BUILDING CLASS AT TIME OF SALE` &lt;chr&gt;, `SALE PRICE` &lt;dbl&gt;,
 ## #   `SALE DATE` &lt;dttm&gt;</code></pre>
 </div>
 <div id="data-transformation-1" class="section level2 hasAnchor">
@@ -156,6 +154,20 @@
 </div>
 <div id="add-one-new-column-to-the-dataset-and-rearrange-the-order-of-the-columns" class="section level3 hasAnchor">
 <h3><span class="header-section-number">3.2.2</span> Add one new column to the dataset and Rearrange the order of the columns<a href="data-transformation.html#add-one-new-column-to-the-dataset-and-rearrange-the-order-of-the-columns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<pre><code>## # A tibble: 6 × 22
+##   BOROUGH Name  NEIGHBORHOOD `BUILDING CLAS…` `TAX CLASS AT …` BLOCK   LOT EASEMENT `BUILDING CLAS…`
+##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;    &lt;chr&gt;           
+## 1 1       Manh… ALPHABET CI… 02 TWO FAMILY D… 1                  377    70 NA       B1              
+## 2 1       Manh… ALPHABET CI… 07 RENTALS - WA… 2                  376    54 NA       C4              
+## 3 1       Manh… ALPHABET CI… 07 RENTALS - WA… 2                  385    46 NA       C4              
+## 4 1       Manh… ALPHABET CI… 07 RENTALS - WA… 2                  386    53 NA       C1              
+## 5 1       Manh… ALPHABET CI… 07 RENTALS - WA… 2B                 389    47 NA       C4              
+## 6 1       Manh… ALPHABET CI… 07 RENTALS - WA… 2                  390    57 NA       C7              
+## # … with 13 more variables: ADDRESS &lt;chr&gt;, `APARTMENT NUMBER` &lt;chr&gt;, `ZIP CODE` &lt;dbl&gt;,
+## #   `RESIDENTIAL UNITS` &lt;dbl&gt;, `COMMERCIAL UNITS` &lt;dbl&gt;, `TOTAL UNITS` &lt;dbl&gt;,
+## #   `LAND SQUARE FEET` &lt;dbl&gt;, `GROSS SQUARE FEET` &lt;dbl&gt;, `YEAR BUILT` &lt;dbl&gt;,
+## #   `TAX CLASS AT TIME OF SALE` &lt;chr&gt;, `BUILDING CLASS AT TIME OF SALE` &lt;chr&gt;, `SALE PRICE` &lt;dbl&gt;,
+## #   `SALE DATE` &lt;dttm&gt;</code></pre>
 </div>
 <div id="rename-and-display-all-variables-name-of-new-dataset" class="section level3 hasAnchor">
 <h3><span class="header-section-number">3.2.3</span> rename and display all variables name of new dataset<a href="data-transformation.html#rename-and-display-all-variables-name-of-new-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -175,37 +187,35 @@
 <h3><span class="header-section-number">3.2.4</span> Remove the columns and rows we don’t need<a href="data-transformation.html#remove-the-columns-and-rows-we-dont-need" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Before remove:</p>
 <pre><code>## # A tibble: 6 × 22
-##   BOROUGH Name      NEIGHBORHOOD  `TAX CLASS AT PRESENT` BLOCK   LOT EASEMENT
-##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt;                  &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;   
-## 1 1       Manhattan ALPHABET CITY 1                        377    70 NA      
-## 2 1       Manhattan ALPHABET CITY 2                        376    54 NA      
-## 3 1       Manhattan ALPHABET CITY 2                        385    46 NA      
-## 4 1       Manhattan ALPHABET CITY 2                        386    53 NA      
-## 5 1       Manhattan ALPHABET CITY 2B                       389    47 NA      
-## 6 1       Manhattan ALPHABET CITY 2                        390    57 NA      
-## # … with 15 more variables: `BUILDING CLASS AT PRESENT` &lt;chr&gt;, ADDRESS &lt;chr&gt;,
-## #   `APARTMENT NUMBER` &lt;chr&gt;, `ZIP CODE` &lt;dbl&gt;, BUILDING_CLASS_CATEGORY &lt;chr&gt;,
-## #   RESIDENTIAL_UNITS &lt;dbl&gt;, COMMERCIAL_UNITS &lt;dbl&gt;, TOTAL_UNITS &lt;dbl&gt;,
-## #   LAND_SQUARE_FEET &lt;dbl&gt;, GROSS_SQUARE_FEET &lt;dbl&gt;, YEAR_BUILT &lt;dbl&gt;,
-## #   TAX_CLASS_AT_TIME_OF_SALE &lt;chr&gt;, BUILDING_CLASS_AT_TIME_OF_SALE &lt;chr&gt;,
-## #   SALE_PRICE &lt;dbl&gt;, SALE_DATE &lt;dttm&gt;</code></pre>
+##   BOROUGH Name      NEIGHBORHOOD  `TAX CLASS AT PRES…` BLOCK   LOT EASEMENT `BUILDING CLAS…` ADDRESS
+##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt;                &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;    &lt;chr&gt;            &lt;chr&gt;  
+## 1 1       Manhattan ALPHABET CITY 1                      377    70 NA       B1               235 EA…
+## 2 1       Manhattan ALPHABET CITY 2                      376    54 NA       C4               719 EA…
+## 3 1       Manhattan ALPHABET CITY 2                      385    46 NA       C4               248 EA…
+## 4 1       Manhattan ALPHABET CITY 2                      386    53 NA       C1               233 EA…
+## 5 1       Manhattan ALPHABET CITY 2B                     389    47 NA       C4               627 EA…
+## 6 1       Manhattan ALPHABET CITY 2                      390    57 NA       C7               197 EA…
+## # … with 13 more variables: `APARTMENT NUMBER` &lt;chr&gt;, `ZIP CODE` &lt;dbl&gt;,
+## #   BUILDING_CLASS_CATEGORY &lt;chr&gt;, RESIDENTIAL_UNITS &lt;dbl&gt;, COMMERCIAL_UNITS &lt;dbl&gt;,
+## #   TOTAL_UNITS &lt;dbl&gt;, LAND_SQUARE_FEET &lt;dbl&gt;, GROSS_SQUARE_FEET &lt;dbl&gt;, YEAR_BUILT &lt;dbl&gt;,
+## #   TAX_CLASS_AT_TIME_OF_SALE &lt;chr&gt;, BUILDING_CLASS_AT_TIME_OF_SALE &lt;chr&gt;, SALE_PRICE &lt;dbl&gt;,
+## #   SALE_DATE &lt;dttm&gt;</code></pre>
 <p>Because there are some variables that are not useful for our study of house price changes in New York, and in addition to that, we do not need houses with transactions below $1,000, so we remove them.</p>
 <pre><code>## # A tibble: 72,067 × 14
-##    BOROUGH Name  NEIGHBORHOOD BUILDING_CLASS_… RESIDENTIAL_UNI… COMMERCIAL_UNITS
-##    &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;                       &lt;dbl&gt;            &lt;dbl&gt;
-##  1 1       Manh… ALPHABET CI… 02 TWO FAMILY D…                2                0
-##  2 1       Manh… ALPHABET CI… 07 RENTALS - WA…               20                0
-##  3 1       Manh… ALPHABET CI… 07 RENTALS - WA…               29                0
-##  4 1       Manh… ALPHABET CI… 07 RENTALS - WA…               10                0
-##  5 1       Manh… ALPHABET CI… 07 RENTALS - WA…               25                5
-##  6 1       Manh… ALPHABET CI… 07 RENTALS - WA…                8                0
-##  7 1       Manh… ALPHABET CI… 07 RENTALS - WA…                9                1
-##  8 1       Manh… ALPHABET CI… 07 RENTALS - WA…                9                0
-##  9 1       Manh… ALPHABET CI… 07 RENTALS - WA…               10                0
-## 10 1       Manh… ALPHABET CI… 07 RENTALS - WA…               10                0
-## # … with 72,057 more rows, and 8 more variables: TOTAL_UNITS &lt;dbl&gt;,
-## #   LAND_SQUARE_FEET &lt;dbl&gt;, GROSS_SQUARE_FEET &lt;dbl&gt;, YEAR_BUILT &lt;dbl&gt;,
-## #   TAX_CLASS_AT_TIME_OF_SALE &lt;chr&gt;, BUILDING_CLASS_AT_TIME_OF_SALE &lt;chr&gt;,
+##    BOROUGH Name      NEIGHBORHOOD  BUILDING_CLASS_CAT… RESIDENTIAL_UNI… COMMERCIAL_UNITS TOTAL_UNITS
+##    &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt;                          &lt;dbl&gt;            &lt;dbl&gt;       &lt;dbl&gt;
+##  1 1       Manhattan ALPHABET CITY 02 TWO FAMILY DWEL…                2                0           2
+##  2 1       Manhattan ALPHABET CITY 07 RENTALS - WALKU…               20                0          20
+##  3 1       Manhattan ALPHABET CITY 07 RENTALS - WALKU…               29                0          29
+##  4 1       Manhattan ALPHABET CITY 07 RENTALS - WALKU…               10                0          10
+##  5 1       Manhattan ALPHABET CITY 07 RENTALS - WALKU…               25                5          30
+##  6 1       Manhattan ALPHABET CITY 07 RENTALS - WALKU…                8                0           8
+##  7 1       Manhattan ALPHABET CITY 07 RENTALS - WALKU…                9                1          10
+##  8 1       Manhattan ALPHABET CITY 07 RENTALS - WALKU…                9                0           9
+##  9 1       Manhattan ALPHABET CITY 07 RENTALS - WALKU…               10                0          10
+## 10 1       Manhattan ALPHABET CITY 07 RENTALS - WALKU…               10                0          10
+## # … with 72,057 more rows, and 7 more variables: LAND_SQUARE_FEET &lt;dbl&gt;, GROSS_SQUARE_FEET &lt;dbl&gt;,
+## #   YEAR_BUILT &lt;dbl&gt;, TAX_CLASS_AT_TIME_OF_SALE &lt;chr&gt;, BUILDING_CLASS_AT_TIME_OF_SALE &lt;chr&gt;,
 ## #   SALE_PRICE &lt;dbl&gt;, SALE_DATE &lt;dttm&gt;</code></pre>
 
 </div>

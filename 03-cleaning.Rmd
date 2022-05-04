@@ -47,6 +47,7 @@ new_data <- data %>%
   inner_join(., description)
 #Rearrange the order of the columns
 new_data<-new_data[c(1,22,2:21)]
+head(new_data)
 ```
 ### rename and display all variables name of new dataset
 ```{r}
