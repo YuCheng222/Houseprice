@@ -56,6 +56,7 @@ Meanwhile, we can see that between April 2021 and the end of 2021, the rolling h
 
 Based on our previous general knowledge of these five areas, we wanted to visualize the relationship between neighborhoods and house prices in these five areas, so we drew a tree diagram by comparing the sales prices of different neighborhoods under different boroughs.
 ```{r}
+library(treemap)
 treemap(data_complete,index=c("Name","NEIGHBORHOOD"),title = "Sales Prices of Different Neighborhoods under Different Boroughs", vSize="SALE_PRICE",type="index") 
 ``` 
 

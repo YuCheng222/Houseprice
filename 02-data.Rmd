@@ -8,9 +8,14 @@ However, after we dive into the merged data set, we also found problems. First, 
 Here are the links to our data sources and the descriptions of the variables.
 
 Data source:
+
+
 https://www1.nyc.gov/site/finance/taxes/property-rolling-sales-data.page
 
+
 Variable description:
+
+
 https://www1.nyc.gov/assets/finance/downloads/pdf/07pdf/glossary_rsf071607.pdf
 
 https://www1.nyc.gov/assets/finance/jump/hlpbldgcode.html

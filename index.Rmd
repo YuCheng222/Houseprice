@@ -7,3 +7,8 @@ site: bookdown::bookdown_site
 
 # Introduction
 
+Housing price has always been one of the most concerned topics for the public, especially for the young people who are just entering the society. The level of housing price determines the amount of pressure they need to bear. Food, clothing, shelter and transportation are the most basic and lowest psychological or living needs, so housing is an indispensable need in urban life.
+
+A metropolis like New York has a large new population and a restricted supply of land and other resources, making housing a scarce resource. Housing prices are rising faster and the house price to income ratio is increasing, which puts a lot of low and middle income people under a lot of pressure. A few young people are willing to buy a suite, empty their wallets and take out huge mortgages, which also has an impact on the physical and mental health of young people.
+
+Due to the relatively high price of primary housing in New York, most people will choose to buy a second home to lower their home buying budget. Therefore, we decided to conduct a comprehensive analysis of the house rolling sales price in New York over the past year to examine the main aspects that affect  property prices. How does the type of home, the location of the home and social events affect the price of the property? These will be the next questions we need to address.
