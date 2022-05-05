@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Missing values | Analyze the Change of New York House Prices from 2000-2020</title>
   <meta name="description" content="Chapter 4 Missing values | Analyze the Change of New York House Prices from 2000-2020" />
-  <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Missing values | Analyze the Change of New York House Prices from 2000-2020" />
   <meta property="og:type" content="book" />
@@ -56,8 +56,8 @@
 <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <script src="libs/plotly-binding-4.10.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 <link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script>
 
@@ -80,30 +80,32 @@
 <li><a href="./">Houseprice</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction<span></span></a></li>
-<li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data sources<span></span></a></li>
-<li class="chapter" data-level="3" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>3</b> Data transformation<span></span></a><ul>
-<li class="chapter" data-level="3.1" data-path="data-transformation.html"><a href="data-transformation.html#import-data"><i class="fa fa-check"></i><b>3.1</b> Import Data<span></span></a></li>
-<li class="chapter" data-level="3.2" data-path="data-transformation.html"><a href="data-transformation.html#data-transformation-1"><i class="fa fa-check"></i><b>3.2</b> Data Transformation<span></span></a><ul>
-<li class="chapter" data-level="3.2.1" data-path="data-transformation.html"><a href="data-transformation.html#combine-the-five-tables-into-one"><i class="fa fa-check"></i><b>3.2.1</b> Combine the five tables into one<span></span></a></li>
-<li class="chapter" data-level="3.2.2" data-path="data-transformation.html"><a href="data-transformation.html#add-one-new-column-to-the-dataset-and-rearrange-the-order-of-the-columns"><i class="fa fa-check"></i><b>3.2.2</b> Add one new column to the dataset and Rearrange the order of the columns<span></span></a></li>
-<li class="chapter" data-level="3.2.3" data-path="data-transformation.html"><a href="data-transformation.html#rename-and-display-all-variables-name-of-new-dataset"><i class="fa fa-check"></i><b>3.2.3</b> Rename and display all variables name of new dataset<span></span></a></li>
-<li class="chapter" data-level="3.2.4" data-path="data-transformation.html"><a href="data-transformation.html#remove-the-columns-and-rows-we-dont-need"><i class="fa fa-check"></i><b>3.2.4</b> Remove the columns and rows we don’t need<span></span></a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data sources</a></li>
+<li class="chapter" data-level="3" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>3</b> Data transformation</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-transformation.html"><a href="data-transformation.html#import-data"><i class="fa fa-check"></i><b>3.1</b> Import Data</a></li>
+<li class="chapter" data-level="3.2" data-path="data-transformation.html"><a href="data-transformation.html#data-transformation-1"><i class="fa fa-check"></i><b>3.2</b> Data Transformation</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="data-transformation.html"><a href="data-transformation.html#combine-the-five-tables-into-one"><i class="fa fa-check"></i><b>3.2.1</b> Combine the five tables into one</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-transformation.html"><a href="data-transformation.html#add-one-new-column-to-the-dataset-and-rearrange-the-order-of-the-columns"><i class="fa fa-check"></i><b>3.2.2</b> Add one new column to the dataset and Rearrange the order of the columns</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-transformation.html"><a href="data-transformation.html#rename-and-display-all-variables-name-of-new-dataset"><i class="fa fa-check"></i><b>3.2.3</b> Rename and display all variables name of new dataset</a></li>
+<li class="chapter" data-level="3.2.4" data-path="data-transformation.html"><a href="data-transformation.html#remove-the-columns-and-rows-we-dont-need"><i class="fa fa-check"></i><b>3.2.4</b> Remove the columns and rows we don’t need</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values<span></span></a><ul>
-<li class="chapter" data-level="4.1" data-path="missing-values.html"><a href="missing-values.html#describe-the-missing-values"><i class="fa fa-check"></i><b>4.1</b> Describe the Missing Values<span></span></a></li>
-<li class="chapter" data-level="4.2" data-path="missing-values.html"><a href="missing-values.html#exploring-the-missing-values"><i class="fa fa-check"></i><b>4.2</b> Exploring the Missing Values<span></span></a></li>
-<li class="chapter" data-level="4.3" data-path="missing-values.html"><a href="missing-values.html#excluding-missing-values-from-analyses"><i class="fa fa-check"></i><b>4.3</b> Excluding Missing Values from Analyses<span></span></a></li>
+<li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values</a><ul>
+<li class="chapter" data-level="4.1" data-path="missing-values.html"><a href="missing-values.html#describe-the-missing-values"><i class="fa fa-check"></i><b>4.1</b> Describe the Missing Values</a></li>
+<li class="chapter" data-level="4.2" data-path="missing-values.html"><a href="missing-values.html#exploring-the-missing-values"><i class="fa fa-check"></i><b>4.2</b> Exploring the Missing Values</a></li>
+<li class="chapter" data-level="4.3" data-path="missing-values.html"><a href="missing-values.html#excluding-missing-values-from-analyses"><i class="fa fa-check"></i><b>4.3</b> Excluding Missing Values from Analyses</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results<span></span></a><ul>
-<li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#analysis-from-the-perspective-of-the-five-boroughs"><i class="fa fa-check"></i><b>5.1</b> Analysis from the perspective of the five Boroughs<span></span></a><ul>
-<li class="chapter" data-level="5.1.1" data-path="results.html"><a href="results.html#visualize-distributions-of-building-year-built-with-different-borough"><i class="fa fa-check"></i><b>5.1.1</b> Visualize Distributions of Building Year Built with Different Borough<span></span></a></li>
+<li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a><ul>
+<li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#analysis-from-the-perspective-of-the-five-boroughs"><i class="fa fa-check"></i><b>5.1</b> Analysis from the Perspective of the Five Boroughs</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="results.html"><a href="results.html#visualize-distributions-of-building-year-built-with-different-borough"><i class="fa fa-check"></i><b>5.1.1</b> Visualize Distributions of Building Year Built with Different Borough</a></li>
+<li class="chapter" data-level="5.1.2" data-path="results.html"><a href="results.html#the-analysis-of-rolling-price-change-in-five-boroughs."><i class="fa fa-check"></i><b>5.1.2</b> The Analysis of Rolling Price Change in Five Boroughs.</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="results.html"><a href="results.html#analysis-house-price-from-the-perspective-of-tax-class"><i class="fa fa-check"></i><b>5.2</b> Analysis House Price from the Perspective of Tax Class<span></span></a></li>
+<li class="chapter" data-level="5.2" data-path="results.html"><a href="results.html#analysis-house-price-from-the-perspective-of-tax-class"><i class="fa fa-check"></i><b>5.2</b> Analysis House Price from the Perspective of Tax Class</a></li>
+<li class="chapter" data-level="5.3" data-path="results.html"><a href="results.html#correlation"><i class="fa fa-check"></i><b>5.3</b> Correlation</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>6</b> Interactive component<span></span></a></li>
-<li class="chapter" data-level="7" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>7</b> Conclusion<span></span></a></li>
+<li class="chapter" data-level="6" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>6</b> Interactive component</a></li>
+<li class="chapter" data-level="7" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>7</b> Conclusion</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -129,14 +131,12 @@
 <h2><span class="header-section-number">4.1</span> Describe the Missing Values<a href="missing-values.html#describe-the-missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   0.000   0.000   3.000   2.274   5.000   6.000</code></pre>
-<pre><code>##               LAND_SQUARE_FEET              GROSS_SQUARE_FEET               COMMERCIAL_UNITS 
-##                          40310                          40310                          37875 
-##              RESIDENTIAL_UNITS                    TOTAL_UNITS                     YEAR_BUILT 
-##                          21272                          18837                           5302 
-##                        BOROUGH                           Name                   NEIGHBORHOOD 
-##                              0                              0                              0 
-##        BUILDING_CLASS_CATEGORY      TAX_CLASS_AT_TIME_OF_SALE BUILDING_CLASS_AT_TIME_OF_SALE 
-##                              0                              0                              0 
+<pre><code>##               LAND_SQUARE_FEET              GROSS_SQUARE_FEET               COMMERCIAL_UNITS              RESIDENTIAL_UNITS 
+##                          40310                          40310                          37875                          21272 
+##                    TOTAL_UNITS                     YEAR_BUILT                        BOROUGH                           Name 
+##                          18837                           5302                              0                              0 
+##                   NEIGHBORHOOD        BUILDING_CLASS_CATEGORY      TAX_CLASS_AT_TIME_OF_SALE BUILDING_CLASS_AT_TIME_OF_SALE 
+##                              0                              0                              0                              0 
 ##                     SALE_PRICE                      SALE_DATE 
 ##                              0                              0</code></pre>
 <pre><code>## [1] 6</code></pre>
@@ -165,14 +165,13 @@
 <div id="excluding-missing-values-from-analyses" class="section level2 hasAnchor">
 <h2><span class="header-section-number">4.3</span> Excluding Missing Values from Analyses<a href="missing-values.html#excluding-missing-values-from-analyses" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When dealing with data that is missing at random, related data can be deleted to reduce bias. We delete the columns with missing values above 20,000 and then drop the missing values. After removing rows with missing values, we get:</p>
-<pre><code>##  [1] &quot;BOROUGH&quot;                        &quot;Name&quot;                          
-##  [3] &quot;NEIGHBORHOOD&quot;                   &quot;BUILDING_CLASS_CATEGORY&quot;       
-##  [5] &quot;TOTAL_UNITS&quot;                    &quot;YEAR_BUILT&quot;                    
-##  [7] &quot;TAX_CLASS_AT_TIME_OF_SALE&quot;      &quot;BUILDING_CLASS_AT_TIME_OF_SALE&quot;
-##  [9] &quot;SALE_PRICE&quot;                     &quot;SALE_DATE&quot;</code></pre>
+<pre><code>##  [1] &quot;BOROUGH&quot;                        &quot;Name&quot;                           &quot;NEIGHBORHOOD&quot;                  
+##  [4] &quot;BUILDING_CLASS_CATEGORY&quot;        &quot;TOTAL_UNITS&quot;                    &quot;YEAR_BUILT&quot;                    
+##  [7] &quot;TAX_CLASS_AT_TIME_OF_SALE&quot;      &quot;BUILDING_CLASS_AT_TIME_OF_SALE&quot; &quot;SALE_PRICE&quot;                    
+## [10] &quot;SALE_DATE&quot;</code></pre>
 <pre><code>## tibble [48,156 × 10] (S3: tbl_df/tbl/data.frame)
 ##  $ BOROUGH                       : chr [1:48156] &quot;1&quot; &quot;1&quot; &quot;1&quot; &quot;1&quot; ...
-##  $ Name                          : chr [1:48156] &quot;Manhattan&quot; &quot;Manhattan&quot; &quot;Manhattan&quot; &quot;Manhattan&quot; ...
+##  $ Name                          : Factor w/ 5 levels &quot;Bronx&quot;,&quot;Brooklyn&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
 ##  $ NEIGHBORHOOD                  : chr [1:48156] &quot;ALPHABET CITY&quot; &quot;ALPHABET CITY&quot; &quot;ALPHABET CITY&quot; &quot;ALPHABET CITY&quot; ...
 ##  $ BUILDING_CLASS_CATEGORY       : chr [1:48156] &quot;02 TWO FAMILY DWELLINGS&quot; &quot;07 RENTALS - WALKUP APARTMENTS&quot; &quot;07 RENTALS - WALKUP APARTMENTS&quot; &quot;07 RENTALS - WALKUP APARTMENTS&quot; ...
 ##  $ TOTAL_UNITS                   : num [1:48156] 2 20 29 10 30 8 10 9 10 10 ...
@@ -180,19 +179,19 @@
 ##  $ TAX_CLASS_AT_TIME_OF_SALE     : chr [1:48156] &quot;1&quot; &quot;2&quot; &quot;2&quot; &quot;2&quot; ...
 ##  $ BUILDING_CLASS_AT_TIME_OF_SALE: chr [1:48156] &quot;B1&quot; &quot;C4&quot; &quot;C1&quot; &quot;C4&quot; ...
 ##  $ SALE_PRICE                    : num [1:48156] 3025000 154196 7500000 5650000 11600000 ...
-##  $ SALE_DATE                     : POSIXct[1:48156], format: &quot;2021-12-16&quot; &quot;2021-06-11&quot; &quot;2021-06-14&quot; ...
+##  $ SALE_DATE                     : POSIXct[1:48156], format: &quot;2021-12-16&quot; &quot;2021-06-11&quot; &quot;2021-06-14&quot; &quot;2022-03-30&quot; ...
 ##  - attr(*, &quot;na.action&quot;)= &#39;omit&#39; Named int [1:23911] 17 18 19 20 21 22 23 24 25 26 ...
 ##   ..- attr(*, &quot;names&quot;)= chr [1:23911] &quot;17&quot; &quot;18&quot; &quot;19&quot; &quot;20&quot; ...</code></pre>
 <pre><code>## # A tibble: 6 × 10
-##   BOROUGH Name      NEIGHBORHOOD  BUILDING_CLASS_CATEGORY    TOTAL_UNITS YEAR_BUILT TAX_CLASS_AT_TI…
-##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt;                            &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;           
-## 1 1       Manhattan ALPHABET CITY 02 TWO FAMILY DWELLINGS              2       2003 1               
-## 2 1       Manhattan ALPHABET CITY 07 RENTALS - WALKUP APART…          20       1900 2               
-## 3 1       Manhattan ALPHABET CITY 07 RENTALS - WALKUP APART…          29       1910 2               
-## 4 1       Manhattan ALPHABET CITY 07 RENTALS - WALKUP APART…          10       1910 2               
-## 5 1       Manhattan ALPHABET CITY 07 RENTALS - WALKUP APART…          30       1900 2               
-## 6 1       Manhattan ALPHABET CITY 07 RENTALS - WALKUP APART…           8       1900 2               
-## # … with 3 more variables: BUILDING_CLASS_AT_TIME_OF_SALE &lt;chr&gt;, SALE_PRICE &lt;dbl&gt;, SALE_DATE &lt;dttm&gt;</code></pre>
+##   BOROUGH Name      NEIGHBORHOOD  BUILDING_CLASS_CATEG… TOTAL_UNITS YEAR_BUILT TAX_CLASS_AT_TIME_… BUILDING_CLASS_AT_T… SALE_PRICE
+##   &lt;chr&gt;   &lt;fct&gt;     &lt;chr&gt;         &lt;chr&gt;                       &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;               &lt;chr&gt;                     &lt;dbl&gt;
+## 1 1       Manhattan ALPHABET CITY 02 TWO FAMILY DWELLI…           2       2003 1                   B1                      3025000
+## 2 1       Manhattan ALPHABET CITY 07 RENTALS - WALKUP …          20       1900 2                   C4                       154196
+## 3 1       Manhattan ALPHABET CITY 07 RENTALS - WALKUP …          29       1910 2                   C1                      7500000
+## 4 1       Manhattan ALPHABET CITY 07 RENTALS - WALKUP …          10       1910 2                   C4                      5650000
+## 5 1       Manhattan ALPHABET CITY 07 RENTALS - WALKUP …          30       1900 2                   C7                     11600000
+## 6 1       Manhattan ALPHABET CITY 07 RENTALS - WALKUP …           8       1900 2                   C4                      4500000
+## # … with 1 more variable: SALE_DATE &lt;dttm&gt;</code></pre>
 
 </div>
 </div>

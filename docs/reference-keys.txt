@@ -14,6 +14,8 @@ excluding-missing-values-from-analyses
 results
 analysis-from-the-perspective-of-the-five-boroughs
 visualize-distributions-of-building-year-built-with-different-borough
+the-analysis-of-rolling-price-change-in-five-boroughs.
 analysis-house-price-from-the-perspective-of-tax-class
+correlation
 interactive-component
 conclusion
