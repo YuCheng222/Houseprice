@@ -1,3 +1,48 @@
 # Interactive component
 
 
+
+```{r}
+library(plotly)
+
+pal <- c("#a4a460","#67b7b7","#b569b5","#459745","#c9815e")
+
+fig <- plot_ly(data = data_complete, x = ~YEAR_BUILT, y = ~SALE_PRICE,
+               color = ~Name,
+               colors = pal,
+               text = ~paste('</br> Area Name: ', Name,
+                      '</br> Neighborhood: ', NEIGHBORHOOD,
+                      '</br> Sale Date: ', SALE_DATE))
+
+t <- list(
+  family = "TT Arial",
+  size = 12,
+  color = 'black')
+
+fig <- fig %>% layout(title = '<b><i>Housing Built Time VS Housing Price in New York</b></i>',
+                      font = t,
+         xaxis = list(title = '<b>Housing Built Time</b>',
+                      zeroline = TRUE,
+                      size=8, face="bold"),
+         yaxis = list(title = '<b>Housing Price</b>',
+         size=8, face="bold"))
+
+
+
+fig %>%config(displayModeBar = F)
+```
+
+```{r}
+fig <- data_complete %>% count(Name, NEIGHBORHOOD)%>% 
+  plot_ly(x = ~Name, y = ~n, color = ~NEIGHBORHOOD)
+
+fig <- fig %>% layout(title = '<b><i>Housing Sold Number in different Housing Boroughs</b></i>',
+                      font = t,
+         xaxis = list(title = '<b>Housing Boroughs</b>',
+                      zeroline = TRUE,
+                      size=8, face="bold"),
+         yaxis = list(title = '<b>Housing Sold Number</b>',
+         size=8, face="bold"))
+fig
+```
+

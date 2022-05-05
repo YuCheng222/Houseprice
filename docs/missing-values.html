@@ -53,6 +53,13 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script>
 
 
 
@@ -85,12 +92,12 @@
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values</a><ul>
-<li class="chapter" data-level="4.1" data-path="missing-values.html"><a href="missing-values.html#describe-the-missing-values"><i class="fa fa-check"></i><b>4.1</b> Describe the missing values</a></li>
-<li class="chapter" data-level="4.2" data-path="missing-values.html"><a href="missing-values.html#exploring-the-missing-values"><i class="fa fa-check"></i><b>4.2</b> Exploring the missing values</a></li>
+<li class="chapter" data-level="4.1" data-path="missing-values.html"><a href="missing-values.html#describe-the-missing-values"><i class="fa fa-check"></i><b>4.1</b> Describe the Missing Values</a></li>
+<li class="chapter" data-level="4.2" data-path="missing-values.html"><a href="missing-values.html#exploring-the-missing-values"><i class="fa fa-check"></i><b>4.2</b> Exploring the Missing Values</a></li>
 <li class="chapter" data-level="4.3" data-path="missing-values.html"><a href="missing-values.html#excluding-missing-values-from-analyses"><i class="fa fa-check"></i><b>4.3</b> Excluding Missing Values from Analyses</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a><ul>
-<li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#visualize-distributions-of-building-year-built-with-different-borough"><i class="fa fa-check"></i><b>5.1</b> Visualize distributions of building year built with different borough</a></li>
+<li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#visualize-distributions-of-building-year-built-with-different-borough"><i class="fa fa-check"></i><b>5.1</b> Visualize Distributions of Building Year Built with Different Borough</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>6</b> Interactive component</a></li>
 <li class="chapter" data-level="7" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>7</b> Conclusion</a></li>
@@ -116,7 +123,7 @@
 <div id="missing-values" class="section level1 hasAnchor">
 <h1><span class="header-section-number">Chapter 4</span> Missing values<a href="missing-values.html#missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="describe-the-missing-values" class="section level2 hasAnchor">
-<h2><span class="header-section-number">4.1</span> Describe the missing values<a href="missing-values.html#describe-the-missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">4.1</span> Describe the Missing Values<a href="missing-values.html#describe-the-missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   0.000   0.000   3.000   2.274   5.000   6.000</code></pre>
 <pre><code>##               LAND_SQUARE_FEET              GROSS_SQUARE_FEET               COMMERCIAL_UNITS              RESIDENTIAL_UNITS 
@@ -142,34 +149,34 @@
 <p>Last, from the table above we know that there are 8 variables with 0 missings, comprising 57.14% of variables in the data set. There is 1 variable with 5302 missings.There is 1 variable with 18837 missings.</p>
 </div>
 <div id="exploring-the-missing-values" class="section level2 hasAnchor">
-<h2><span class="header-section-number">4.2</span> Exploring the missing values<a href="missing-values.html#exploring-the-missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<h2><span class="header-section-number">4.2</span> Exploring the Missing Values<a href="missing-values.html#exploring-the-missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>The above graph provides a summary of whether the data is missing or not. It also provides the amount of missings in each columns. So here, LAND_SQUARE_FEET and GROSS_SQUARE_FEET have the most missing data, with LAND_SQUARE_FEET having 55.93% missing data and GROSS_SQUARE_FEET have 55.93%.</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>We also try to add facets in above plots with different Borough.</p>
 <pre><code>## [1] 163906</code></pre>
 <pre><code>## NOTE: The following pairs of variables appear to have the same missingness pattern.
 ##  Please verify whether they are in fact logically distinct variables.
 ##      [,1]               [,2]               
 ## [1,] &quot;LAND_SQUARE_FEET&quot; &quot;GROSS_SQUARE_FEET&quot;</code></pre>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <pre><code>## NOTE: In the following pairs of variables, the missingness pattern of the second is a subset of the first.
 ##  Please verify whether they are in fact logically distinct variables.
 ##      [,1]                [,2]         
 ## [1,] &quot;RESIDENTIAL_UNITS&quot; &quot;TOTAL_UNITS&quot;
 ## [2,] &quot;COMMERCIAL_UNITS&quot;  &quot;TOTAL_UNITS&quot;</code></pre>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-16-2.png" width="672" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-18-2.png" width="672" /></p>
 <pre><code>## NOTE: In the following pairs of variables, the missingness pattern of the second is a subset of the first.
 ##  Please verify whether they are in fact logically distinct variables.
 ##      [,1]                [,2]         
 ## [1,] &quot;RESIDENTIAL_UNITS&quot; &quot;TOTAL_UNITS&quot;
 ## [2,] &quot;COMMERCIAL_UNITS&quot;  &quot;TOTAL_UNITS&quot;</code></pre>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <pre><code>## NOTE: The following pairs of variables appear to have the same missingness pattern.
 ##  Please verify whether they are in fact logically distinct variables.
 ##      [,1]               [,2]               
 ## [1,] &quot;LAND_SQUARE_FEET&quot; &quot;GROSS_SQUARE_FEET&quot;</code></pre>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-17-2.png" width="672" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-19-2.png" width="672" /></p>
 <p>These four graphs show that the information on the missing value of the data set. There are 163906 values missing in it. Since there are 72067 rows in the data set, we choose to do graphs visualization every 20,000 rows.</p>
 </div>
 <div id="excluding-missing-values-from-analyses" class="section level2 hasAnchor">

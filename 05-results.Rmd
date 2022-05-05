@@ -29,3 +29,81 @@ grid.arrange(g1,g2, nrow=1)
 The left is the Boxplots of Year of Building Establishment by Borough Name. The right graph is the Ridgeline Plots of Year of Building Establishment by Borough Name.
 
 The boxplots allow us to see that there are some year bulit outliers for each borough, with the most happening in the “StatesIsland” borough. We can also see from the boxplots that the median year built is similar for Bronx and Brooklyn. The ridgeline plots allow us to easily compare distributions of the year built of collisions. The distribution of year built for Queens, Brooklyn, and Bronx are all very similar and basically trimodal about 1925, with some collisions happening at later years. The distribution of year built at StatesIsland is little different – it is almost unimodal with modes at 1985.
+
+```{r}
+#Comparison of house prices for different house types 
+ggplot(data = data_complete,aes(SALE_PRICE,fct_reorder(BUILDING_CLASS_CATEGORY,SALE_PRICE)))+
+  geom_point(color="blue")+
+  theme_linedraw()
+#Comparison of house prices for different house types under different tax
+ggplot(data = data_complete,aes(SALE_PRICE,fct_reorder2(BUILDING_CLASS_CATEGORY,TAX_CLASS_AT_TIME_OF_SALE,SALE_PRICE)))+
+  geom_point(color="blue")+
+  facet_grid(TAX_CLASS_AT_TIME_OF_SALE~.,scale="free_y")+
+  theme(axis.text.y=element_text(size=4))
+```
+
+```{r}
+g2 <- ggplot(data_complete,aes(SALE_PRICE))+
+  geom_histogram(color = "blue", fill = "lightblue",bins = 100)+
+  facet_wrap(~Name,scales = "free_x")
+```
+
+```{r}
+library(treemap)
+treemap(data_complete,index="BUILDING_CLASS_CATEGORY",vSize="SALE_PRICE",title = )
+treemap(data_complete,index="BUILDING_CLASS_CATEGORY",vSize="TOTAL_UNITS",title = )
+```
+
+```{r}
+library("scales")
+data_complete$SALE_Year <- format(data_complete$SALE_DATE, format="%Y")
+table(data_complete$SALE_Year)
+
+data_complete %>% 
+  group_by(TAX_CLASS_AT_TIME_OF_SALE) %>% 
+  mutate(x = seq(min(SALE_PRICE), max(SALE_PRICE), length.out = length(SALE_PRICE))) %>% # create x's to use with geom_line()
+  ungroup() %>% 
+  ggplot(aes(SALE_PRICE)) + 
+  geom_histogram(aes(y = ..density..), color = "#b569b5", fill = "#67b7b7",boundary = 10, bins=100) + 
+  geom_density(color='#c9815e') +
+  xlim(0, 20000000)+labs(
+  title = 'The Density Plot of Housing Price in Different Tax Class', 
+  x = 'Housing Price', y = 'Density')+
+  facet_wrap(~TAX_CLASS_AT_TIME_OF_SALE)+ theme( panel.grid.major=element_line(colour=NA),
+            panel.background = element_rect(fill = "transparent",colour = NA),
+            plot.background = element_rect(fill = "transparent",colour = NA),
+            axis.text.x =element_text(face="bold",color="black",size=6,angle=0),
+              plot.title = element_text(color="black", size=12,
+                                        face="bold.italic",
+                                        vjust=3, hjust = 0.5),
+           axis.title.x = element_text(color="black", size=10,
+                                       face="bold",vjust=-1),
+           axis.title.y = element_text(color="black", size=10,
+                                       face="bold",vjust=4),)
+```
+
+```{r}
+a <- data_complete %>% count(Name,BUILDING_CLASS_AT_TIME_OF_SALE)
+ggplot(a,aes(fill=BUILDING_CLASS_AT_TIME_OF_SALE, y=n, x=Name)) + 
+    geom_bar(position="fill", stat="identity")+labs(
+  title = 'The Building Class in Different Housing Boroughs', 
+  x = 'Housing Boroughs', y = 'Percentage')+theme( panel.grid.major=element_line(colour=NA),
+            panel.background = element_rect(fill = "transparent",colour = NA),
+            plot.background = element_rect(fill = "transparent",colour = NA),
+            axis.text.x =element_text(face="bold",color="black",size=7,angle=45),
+              plot.title = element_text(color="black", size=6,
+                                        face="bold.italic",
+                                        vjust=3, hjust = 0.5),
+           axis.title.x = element_text(color="black", size=6,
+                                       face="bold",vjust=-1),
+           axis.title.y = element_text(color="black", size=6,
+                                       face="bold",vjust=4),)
+```
+```{r}
+#correlation plot
+library(ggcorrplot)
+model.matrix(~0+., data=data_complete[, c(2,5,6,9,11)]) %>% 
+  cor(use="pairwise.complete.obs") %>% 
+  ggcorrplot(show.diag = F, type="lower", lab=TRUE, lab_size=2)
+```
+
