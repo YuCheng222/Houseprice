@@ -1,5 +1,5 @@
 --- 
-title: "Analyze the New York City House Rolling Sales Data from April 2021 to March 2022"
+title: "Analyze the New York City House Rolling Sales from April 2021 to March 2022"
 author: "Yu Cheng | Hui Li"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
