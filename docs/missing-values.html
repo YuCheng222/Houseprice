@@ -155,11 +155,33 @@
 </div>
 <div id="exploring-the-missing-values" class="section level2 hasAnchor">
 <h2><span class="header-section-number">4.2</span> Exploring the Missing Values<a href="missing-values.html#exploring-the-missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <p>The above graph provides a summary of whether the data is missing or not. It also provides the amount of missings in each columns. So here, LAND_SQUARE_FEET and GROSS_SQUARE_FEET have the most missing data, with LAND_SQUARE_FEET having 55.93% missing data and GROSS_SQUARE_FEET have 55.93%.</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 <p>We also try to add facets in above plots with different Borough.</p>
 <pre><code>## [1] 163906</code></pre>
+<pre><code>## NOTE: The following pairs of variables appear to have the same missingness pattern.
+##  Please verify whether they are in fact logically distinct variables.
+##      [,1]               [,2]               
+## [1,] &quot;LAND_SQUARE_FEET&quot; &quot;GROSS_SQUARE_FEET&quot;</code></pre>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<pre><code>## NOTE: In the following pairs of variables, the missingness pattern of the second is a subset of the first.
+##  Please verify whether they are in fact logically distinct variables.
+##      [,1]                [,2]         
+## [1,] &quot;RESIDENTIAL_UNITS&quot; &quot;TOTAL_UNITS&quot;
+## [2,] &quot;COMMERCIAL_UNITS&quot;  &quot;TOTAL_UNITS&quot;</code></pre>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-24-2.png" width="672" /></p>
+<pre><code>## NOTE: In the following pairs of variables, the missingness pattern of the second is a subset of the first.
+##  Please verify whether they are in fact logically distinct variables.
+##      [,1]                [,2]         
+## [1,] &quot;RESIDENTIAL_UNITS&quot; &quot;TOTAL_UNITS&quot;
+## [2,] &quot;COMMERCIAL_UNITS&quot;  &quot;TOTAL_UNITS&quot;</code></pre>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-24-3.png" width="672" /></p>
+<pre><code>## NOTE: The following pairs of variables appear to have the same missingness pattern.
+##  Please verify whether they are in fact logically distinct variables.
+##      [,1]               [,2]               
+## [1,] &quot;LAND_SQUARE_FEET&quot; &quot;GROSS_SQUARE_FEET&quot;</code></pre>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-24-4.png" width="672" /></p>
 <p>These four graphs show that the information on the missing value of the data set. There are 163906 values missing in it. Since there are 72067 rows in the data set, we choose to do graphs visualization every 20,000 rows.</p>
 </div>
 <div id="excluding-missing-values-from-analyses" class="section level2 hasAnchor">

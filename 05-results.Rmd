@@ -83,15 +83,17 @@ ggplot(a,aes(fill=BUILDING_CLASS_AT_TIME_OF_SALE, y=n, x=Name)) +
 The above graph analyzes the building classification in different boroughs, presented as a percentage. It can be found that Queens and StatenIsland, with a higher proportion of building type A, are one-family homes. Manhattan and Brooklyn have a higher proportion of building type R, representing condominiums, which fits with our conclusion that we get from the first interactive plot.
 
 
-
 ```{r}
 library(sf)
 library(dplyr)
 library(tmap)
+library(leaflet)   
+library(htmlwidgets)
 shape <- read_sf("nybb_22a/nybb.shp")
 
 data_complete$SALE_Year <- format(data_complete$SALE_DATE, format="%Y-%m")
 table(data_complete$SALE_Year)
+
 
 df <- data_complete %>% select('Name','SALE_PRICE','SALE_Year') %>%
     group_by('SALE_Year') %>% summarize(Mean = mean('SALE_PRICE',na.rm=TRUE))
@@ -104,12 +106,27 @@ df2 <- data_complete %>% select('Name','SALE_PRICE','SALE_Year')  %>%
 
 df3 <- left_join(shape,df2, c("BoroName" = "Name"))
 
-library(scales)
-tm_shape(df3) +
-  tm_polygons("mean_pr", palette = "Blues") +
-  tm_text("BoroName", size = 0.8)
+
+ggplot(df3) +
+  geom_sf(aes(fill = mean_pr)) +
+  scale_fill_viridis_c(
+    name = "Housing Mean Price",
+    option = "viridis"
+    ) +
+  theme_void() +
+  labs(title = "Housing Mean Price in different New York Boroughs")
+
+ggplot(df3) +
+  geom_sf(aes(fill = mean_pr)) +
+  scale_fill_viridis_c(
+    name = "Housing Mean Price",
+    option = "viridis"
+    ) +
+  theme_void() +
+  labs(title = "Housing Mean Price in different New York Boroughs")+facet_wrap(vars(SALE_Year))
 ```
 
+We have also analyzed the mean housing prices in the other four boroughs, except StatenIsland, and distinguished in different months. It is clear that the mean housing price in Manhattan is higher than in the other three boroughs, and is particularly high in December 2021 and March 2022.
 
 
 ## Analysis House Price from the Perspective of Tax Class

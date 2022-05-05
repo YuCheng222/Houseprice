@@ -37,7 +37,17 @@ sum(is.na.data.frame(new_data1))
 data <- as.data.frame(new_data1)%>%
   select(-SALE_DATE)
 
+x1 <- missing_data.frame(data[1:20000,])
+image(x1)
 
+x2 <- missing_data.frame(data[20000:40000,])
+image(x2)
+
+x3 <- missing_data.frame(data[40000:60000,]) 
+image(x3)
+
+x4 <- missing_data.frame(data[60000:72067,]) 
+image(x4)
 ```
 
 
