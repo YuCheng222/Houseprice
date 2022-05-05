@@ -37,19 +37,9 @@ sum(is.na.data.frame(new_data1))
 data <- as.data.frame(new_data1)%>%
   select(-SALE_DATE)
 
-x1 <- missing_data.frame(data[1:20000,])
-image(x1)
 
-x2 <- missing_data.frame(data[20000:40000,])
-image(x2)
 ```
-```{r}
-x3 <- missing_data.frame(data[40000:60000,]) 
-image(x3)
 
-x4 <- missing_data.frame(data[60000:72067,]) 
-image(x4)
-```
 
 These four graphs show that the information on the missing value of the data set. There are 163906 values missing in it. Since there are 72067 rows in the data set, we choose to do graphs visualization every 20,000 rows.
 

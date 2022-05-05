@@ -1,10 +1,21 @@
 # Results
-## Visualize Distributions of Building Year Built with Different Borough
+## Analysis from the perspective of the five Boroughs
+First, we made an initial breakdown of the sales prices of homes sold on a rolling basis over the past year, dividing home transactions into five sections based on boroughs: 'Manhattan', 'Bronx', 'Brooklyn', 'Queens', and 'StatenIsland'.
+```{r}
+mytable <- table(data_complete$Name)
+lbls <- paste(names(mytable), "\n", mytable, sep="")
+pie(mytable, labels = lbls,
+   main="Pie Chart of Housing Sold Number in different Boroughs")
+```
+From the pie chart we can see that in the past year, Brooklyn had the highest rolling home sales (15,037), followed by Queens (14,436). The bronx, on the other hand, had the lowest number of home sales at 3573.Manhattan and Staten Island are in the middle. Our initial speculation is because most people's jobs may be in or near Manhattan, but the prices in Manhattan and the cost of living are so high that they choose to settle closer to it. And compared to bronx and Staten Island, Brooklyn and Queens are better places to live, such as buying goods or transportation will be more convenient.
+
+
+### Visualize Distributions of Building Year Built with Different Borough
 ```{r}
 library(ggplot2)
 library(tidyverse)
 g1 <- data_complete %>% 
-  mutate(Name = fct_relevel(Name, 'Manhattan','Bronx','Brooklyn','Queens','StatesIsland')) %>%
+  mutate(Name = fct_relevel(Name, 'Manhattan','Bronx','Brooklyn','Queens','StatenIsland')) %>%
   ggplot(aes(Name, YEAR_BUILT)) +
   geom_boxplot(fill='steelblue') +
   coord_flip() +
@@ -15,7 +26,7 @@ g1
 ```{r}
 library(ggridges) 
 g2 <- data_complete %>%
-  mutate(Name = fct_relevel(Name, 'Manhattan','Bronx','Brooklyn','Queens','StatesIsland')) %>%
+  mutate(Name = fct_relevel(Name, 'Manhattan','Bronx','Brooklyn','Queens','StatenIsland')) %>%
   ggplot(aes(x=YEAR_BUILT, y=Name)) +
   geom_density_ridges(fill = "cornflowerblue",, alpha=0.5, scale=1)
 g2
@@ -28,32 +39,55 @@ grid.arrange(g1,g2, nrow=1)
 
 The left is the Boxplots of Year of Building Establishment by Borough Name. The right graph is the Ridgeline Plots of Year of Building Establishment by Borough Name.
 
-The boxplots allow us to see that there are some year bulit outliers for each borough, with the most happening in the “StatesIsland” borough. We can also see from the boxplots that the median year built is similar for Bronx and Brooklyn. The ridgeline plots allow us to easily compare distributions of the year built of collisions. The distribution of year built for Queens, Brooklyn, and Bronx are all very similar and basically trimodal about 1925, with some collisions happening at later years. The distribution of year built at StatesIsland is little different – it is almost unimodal with modes at 1985.
+The boxplots allow us to see that there are some year bulit outliers for each borough, with the most happening in the “StatenIsland” borough. We can also see from the boxplots that the median year built is similar for Bronx and Brooklyn. The ridgeline plots allow us to easily compare distributions of the year built of collisions. The distribution of year built for Queens, Brooklyn, and Bronx are all very similar and basically trimodal about 1925, with some collisions happening at later years. The distribution of year built at StatenIsland is little different – it is almost unimodal with modes at 1985.
+
+
+
+We have examined the changes in house prices over time in different regions during the year:
+```{r}
+price_chart<- ggplot(data_complete, aes(SALE_DATE, SALE_PRICE))+
+  geom_line()+
+  facet_grid(Name~., scales="free_y")+
+  labs(title="House Price of Different Boroughs since Apirl.2021")
+price_chart
+```
+Meanwhile, we can see that between April 2021 and the end of 2021, the rolling house price prices in all four regions except the bronx are on a relatively low trend. And by January 2022, there is a significant upward trend in house prices. In our opinion, this is related to the economic downturn and lower home prices due to covid-19 last year. And by January of this year, the pandemic's impact on the economy is significantly lower, and the real estate market is showing signs of recovery.
+
+
+Based on our previous general knowledge of these five areas, we wanted to visualize the relationship between neighborhoods and house prices in these five areas, so we drew a tree diagram by comparing the sales prices of different neighborhoods under different boroughs.
+```{r}
+treemap(data_complete,index=c("Name","NEIGHBORHOOD"),title = "Sales Prices of Different Neighborhoods under Different Boroughs", vSize="SALE_PRICE",type="index") 
+``` 
+
+We can see that in Manhattan's neighborhoods, the upper west side, midtown west and clinton areas all have relatively high housing prices. For Brooklyn, the house in bedford stuyvesant and crown heights areas are more sought after. And people in Queens prefer to settle in Flushing and Long Island.And people in Queens prefer to settle in Flushing and Long Island. Our analysis is because most Chinese people are active in Flushing, while Long Island is close to Manhattan and not as expensive as Manhattan. That's why houses in these two areas are more popular.
+
 
 ```{r}
-#Comparison of house prices for different house types 
-ggplot(data = data_complete,aes(SALE_PRICE,fct_reorder(BUILDING_CLASS_CATEGORY,SALE_PRICE)))+
-  geom_point(color="blue")+
-  theme_linedraw()
-#Comparison of house prices for different house types under different tax
-ggplot(data = data_complete,aes(SALE_PRICE,fct_reorder2(BUILDING_CLASS_CATEGORY,TAX_CLASS_AT_TIME_OF_SALE,SALE_PRICE)))+
-  geom_point(color="blue")+
-  facet_grid(TAX_CLASS_AT_TIME_OF_SALE~.,scale="free_y")+
-  theme(axis.text.y=element_text(size=4))
+a <- data_complete %>% count(Name,BUILDING_CLASS_AT_TIME_OF_SALE)
+ggplot(a,aes(fill=BUILDING_CLASS_AT_TIME_OF_SALE, y=n, x=Name)) + 
+    geom_bar(position="fill", stat="identity")+labs(
+  title = 'The Building Class in Different Housing Boroughs', 
+  x = 'Housing Boroughs', y = 'Percentage')+theme( panel.grid.major=element_line(colour=NA),
+            panel.background = element_rect(fill = "transparent",colour = NA),
+            plot.background = element_rect(fill = "transparent",colour = NA),
+            axis.text.x =element_text(face="bold",color="black",size=7,angle=45),
+              plot.title = element_text(color="black", size=6,
+                                        face="bold.italic",
+                                        vjust=3, hjust = 0.5),
+           axis.title.x = element_text(color="black", size=6,
+                                       face="bold",vjust=-1),
+           axis.title.y = element_text(color="black", size=6,
+                                       face="bold",vjust=4),)
 ```
 
-```{r}
-g2 <- ggplot(data_complete,aes(SALE_PRICE))+
-  geom_histogram(color = "blue", fill = "lightblue",bins = 100)+
-  facet_wrap(~Name,scales = "free_x")
-```
-
-```{r}
-library(treemap)
-treemap(data_complete,index="BUILDING_CLASS_CATEGORY",vSize="SALE_PRICE",title = )
-treemap(data_complete,index="BUILDING_CLASS_CATEGORY",vSize="TOTAL_UNITS",title = )
-```
-
+## Analysis House Price from the Perspective of Tax Class
+Next, we further investigate rolling house prices from the perspective of tax levels. In our dataset, taxes are divided into four levels. 
+Class I:Includes most residential properties of up to three units (e.g:
+Two- and three-family dwellings and one- or two-family apartments attached to a small store or office), vacant land zoned for residential use, and most apartments of no more than three stories.
+Class 2: Includes all other properties that are primarily residential, such as
+cooperatives and condominiums.
+Class 3:Includes property companies that own gas, telephone or electric equipment.
+Class 4:Includes all other properties not included in Class 1, Class 2 and Class 3, such as offices, factories, warehouses, garages, etc.
 ```{r}
 library("scales")
 data_complete$SALE_Year <- format(data_complete$SALE_DATE, format="%Y")
@@ -82,23 +116,39 @@ data_complete %>%
                                        face="bold",vjust=4),)
 ```
 
+
+We also compared the rolling transaction prices between the different tpyes of houses in tax category 1, 2 and 4:
 ```{r}
-a <- data_complete %>% count(Name,BUILDING_CLASS_AT_TIME_OF_SALE)
-ggplot(a,aes(fill=BUILDING_CLASS_AT_TIME_OF_SALE, y=n, x=Name)) + 
-    geom_bar(position="fill", stat="identity")+labs(
-  title = 'The Building Class in Different Housing Boroughs', 
-  x = 'Housing Boroughs', y = 'Percentage')+theme( panel.grid.major=element_line(colour=NA),
-            panel.background = element_rect(fill = "transparent",colour = NA),
-            plot.background = element_rect(fill = "transparent",colour = NA),
-            axis.text.x =element_text(face="bold",color="black",size=7,angle=45),
-              plot.title = element_text(color="black", size=6,
-                                        face="bold.italic",
-                                        vjust=3, hjust = 0.5),
-           axis.title.x = element_text(color="black", size=6,
-                                       face="bold",vjust=-1),
-           axis.title.y = element_text(color="black", size=6,
-                                       face="bold",vjust=4),)
+#Comparison of house prices for different house types 
+ggplot(data = data_complete,aes(SALE_PRICE,fct_reorder(BUILDING_CLASS_CATEGORY,SALE_PRICE)))+
+  geom_point(color="blue")+
+  labs(title = 'House Prices for Different House Types ', x = 'Housing Price', y = 'House Types ')+
+  theme_linedraw()
+#house prices for different house types under different tax
+ggplot(data = data_complete,aes(SALE_PRICE,fct_reorder2(BUILDING_CLASS_CATEGORY,TAX_CLASS_AT_TIME_OF_SALE,SALE_PRICE)))+
+  geom_point(color="blue")+
+  labs(title = 'House Prices for Different House Types under Different Tax', x = 'Housing Price', y = 'House Types ')+
+  facet_grid(TAX_CLASS_AT_TIME_OF_SALE~.,scale="free_y")+
+  theme(axis.text.y=element_text(size=4))
 ```
+From this chart, we can see that the fourth type of tax area has the most housing types. Office bulidings and warehouses for it are the most expensive types of houses. On the contrary, condo and outdour facilities are considered to have lower transaction prices in the fourth tax category. Among these threetypes, the average price of the first tax type is less compared to the other two, and the house type is also the least. We consider the reason for this phenomenon is that in a rapidly growing economy, most people choose to live in condominiums rather than up to three units below the third floor, so the first tax type has been gradually eliminated from the rolling housing market.
+
+
+In addition to home prices, we also wanted to understand the relationship between the total number of units at the listed property and the type of housing and taxes. Therefore, we drew a treemap:
+```{r}
+library(treemap)
+treemap(data_complete,index=c("TAX_CLASS_AT_TIME_OF_SALE","BUILDING_CLASS_CATEGORY"),title = "Treemap for Different House Types under Different Tax by Total Units", vSize="TOTAL_UNITS",type="index") 
+```
+ Unlike the relationship between taxes and house prices mentioned earlier, properties in the second tax category have more number of units, and special condo billing lots are the most prominent in the second category. Moreover, the fourth tax type has the least number of units, which is the opposite of its relatively high price.
+
+
+
+
+
+
+
+
+
 ```{r}
 #correlation plot
 library(ggcorrplot)
@@ -106,4 +156,15 @@ model.matrix(~0+., data=data_complete[, c(2,5,6,9,11)]) %>%
   cor(use="pairwise.complete.obs") %>% 
   ggcorrplot(show.diag = F, type="lower", lab=TRUE, lab_size=2)
 ```
+
+
+
+
+
+
+
+
+
+
+
 

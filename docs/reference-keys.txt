@@ -12,6 +12,8 @@ describe-the-missing-values
 exploring-the-missing-values
 excluding-missing-values-from-analyses
 results
+analysis-from-the-perspective-of-the-five-boroughs
 visualize-distributions-of-building-year-built-with-different-borough
+analysis-house-price-from-the-perspective-of-tax-class
 interactive-component
 conclusion

@@ -42,7 +42,7 @@ description <- data.frame(BOROUGH = c("1","2","3","4","5"), Name = c(
   "Bronx",
   "Brooklyn",
   "Queens",
-  "StatesIsland")
+  "StatenIsland")
   )
 #Add the new column to the dataset
 new_data <- data %>%
