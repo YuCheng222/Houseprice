@@ -1,7 +1,5 @@
 # Interactive component
-
-
-
+We also create two interactive graphs that give users a new understanding of the data set and a clear understanding of the purpose of the visualization.
 ```{r}
 library(plotly)
 
@@ -32,6 +30,8 @@ fig <- fig %>% layout(title = '<b><i>Housing Built Time VS Housing Price in New 
 fig %>%config(displayModeBar = F)
 ```
 
+The above graph shows the interactive scatter plot of the year of construction (the older the year, the older the house) and the house price in different borough. From the graph, we can draw the following points: the older the year of construction, the higher the house prices, especially in Brooklyn and Manhattan. However, it is worth noting that the housing prices in Queens and Bronx were higher before 1950. Next, StatenIsland with the cheapest housing prices, and Manhattan with the most expensive housing prices. Overall, house prices in the five boroughs are similar in Manhattan and Brooklyn, where Bronx and Queens are similar. The age of the house has an impact on the price of the house in a certain sense.
+
 ```{r}
 fig <- data_complete %>% count(Name, NEIGHBORHOOD)%>% 
   plot_ly(x = ~Name, y = ~n, color = ~NEIGHBORHOOD)
@@ -45,4 +45,6 @@ fig <- fig %>% layout(title = '<b><i>Housing Sold Number in different Housing Bo
          size=8, face="bold"))
 fig
 ```
+
+The second graph shows above is the interaction between the number of housing sold in different boroughs. We can zoom in and see that in the Bronx, for example, there are 5 neighborhoods with over 200, from highest to lowest is: Soundwiew(277), Throgs Neck(267), Williamsbridge(245), Baychester(235), Morris Park(216). The highest number of of housing sold in Brooklyn is Bedford Stuyversant(1135), the highest number of of housing sold in Manhattan is Harlem-Central(595), the highest number of housing sold in Queens is Flushing-North(1626), and the highest number of housing sold in StatenIsland is Great Kills(621). Overall, Queens and Brooklyn have more number of housing sold compared to the other three boroughs, Manhattan has a similar number of housing sold with StatenIsland, and the Bronx has the lowest number of housing sold.
 
