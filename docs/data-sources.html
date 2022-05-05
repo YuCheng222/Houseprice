@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Data sources | Analyze the Change of New York House Prices from 2000-2020</title>
-  <meta name="description" content="Chapter 2 Data sources | Analyze the Change of New York House Prices from 2000-2020" />
+  <title>Chapter 2 Data sources | Analyze the New York City House Rolling Sales Data from April 2021 to March 2022</title>
+  <meta name="description" content="Chapter 2 Data sources | Analyze the New York City House Rolling Sales Data from April 2021 to March 2022" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Data sources | Analyze the Change of New York House Prices from 2000-2020" />
+  <meta property="og:title" content="Chapter 2 Data sources | Analyze the New York City House Rolling Sales Data from April 2021 to March 2022" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Data sources | Analyze the Change of New York House Prices from 2000-2020" />
+  <meta name="twitter:title" content="Chapter 2 Data sources | Analyze the New York City House Rolling Sales Data from April 2021 to March 2022" />
   
   
   
@@ -117,7 +117,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analyze the Change of New York House Prices from 2000-2020</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analyze the New York City House Rolling Sales Data from April 2021 to March 2022</a>
           </h1>
         </div>
 
@@ -131,10 +131,10 @@
 <p>We downloaded the data set for each of the five different boroughs from the NYC Department of Finance website and put it in the same file. Before uploading the data sets, we needed to determine if they were available. By comparing the information of the five data sets, we found that the variables are the same for each data set or each borough. These data sets include the neighborhood, building type, square footage, and other data, for a total of 21 variables. The variable types include character, numeric, logical, and the POSIXct, which is the number of seconds since the start of January 1, 1970. Because each data set has the same variables, this facilitates us to merge 5 data sets into one data set, which is convenient to process and analyze the data information. In addition, we added a new column called “Name” to the data set in order to make it more intuitive and clear when representing the boroughs in the later graphs.</p>
 <p>However, after we dive into the merged data set, we also found problems. First, the variable “EASEMENT” and the variable “APARTMENT NUMBER” have no data records from the beginning to the end. Second, because the data had not been processed, our observations were too large after data merging, more than 90,000. Thirdly, some variables have more than 40,000 missing values, such as “LAND SQUARE FEET” and “GROSS SQUARE FEET”. We will deal with these problems we found in the later part to reduce the complexity and biased possibility.</p>
 <p>Here are the links to our data sources and the descriptions of the variables.</p>
-<p>Data source:
-<a href="https://www1.nyc.gov/site/finance/taxes/property-rolling-sales-data.page" class="uri">https://www1.nyc.gov/site/finance/taxes/property-rolling-sales-data.page</a></p>
-<p>Variable description:
-<a href="https://www1.nyc.gov/assets/finance/downloads/pdf/07pdf/glossary_rsf071607.pdf" class="uri">https://www1.nyc.gov/assets/finance/downloads/pdf/07pdf/glossary_rsf071607.pdf</a></p>
+<p>Data source:</p>
+<p><a href="https://www1.nyc.gov/site/finance/taxes/property-rolling-sales-data.page" class="uri">https://www1.nyc.gov/site/finance/taxes/property-rolling-sales-data.page</a></p>
+<p>Variable description:</p>
+<p><a href="https://www1.nyc.gov/assets/finance/downloads/pdf/07pdf/glossary_rsf071607.pdf" class="uri">https://www1.nyc.gov/assets/finance/downloads/pdf/07pdf/glossary_rsf071607.pdf</a></p>
 <p><a href="https://www1.nyc.gov/assets/finance/jump/hlpbldgcode.html" class="uri">https://www1.nyc.gov/assets/finance/jump/hlpbldgcode.html</a></p>
 
 </div>

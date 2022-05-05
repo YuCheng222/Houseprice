@@ -56,6 +56,7 @@ Meanwhile, we can see that between April 2021 and the end of 2021, the rolling h
 
 Based on our previous general knowledge of these five areas, we wanted to visualize the relationship between neighborhoods and house prices in these five areas, so we drew a tree diagram by comparing the sales prices of different neighborhoods under different boroughs.
 ```{r}
+library(treemap)
 treemap(data_complete,index=c("Name","NEIGHBORHOOD"),title = "Sales Prices of Different Neighborhoods under Different Boroughs", vSize="SALE_PRICE",type="index") 
 ``` 
 
@@ -125,6 +126,7 @@ ggplot(df3) +
   theme_void() +
   labs(title = "Housing Mean Price in different New York Boroughs")+facet_wrap(vars(SALE_Year))
 ```
+
 
 We have also analyzed the mean housing prices in the other four boroughs, except StatenIsland, and distinguished in different months. It is clear that the mean housing price in Manhattan is higher than in the other three boroughs, and is particularly high in December 2021 and March 2022.
 
